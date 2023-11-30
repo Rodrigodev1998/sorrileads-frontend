@@ -1,0 +1,101 @@
+.container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .image-container {
+    flex: 1;
+  }
+  
+  .logo-container {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    z-index: 10;
+  }
+  
+  .logo-container img {
+    width: 50px; /* Ajuste o tamanho da sua logo conforme necessário */
+    height: auto;
+    
+  }
+  .image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.393);
+  }
+
+  .image-container img{
+    width: 120%;
+    height: 100%;
+
+  }
+  
+  .form-container {
+    display: flex;
+    padding: 20px;
+    background-color:#fff ;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 33%;
+    z-index: 10;
+  }
+  p {
+    align-self: start;
+    color: #000;
+    font-size: 32px;
+    margin-bottom: 100px; 
+    margin-top: 0;
+    margin-inline-start: 28px;
+  }
+  
+  form {
+    width: 90%;
+    margin-inline-start: 32px;
+    margin-inline-end: 32px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 36px;
+    box-sizing: border-box;
+    background-color: #fff; 
+    border: 1px solid #ccc; 
+    border-radius: 8px;
+    padding: 12px;
+    outline: none;
+  }
+  input::placeholder{
+    color: #ccc;
+  }
+  
+  button {
+    width: 100%;
+    background-color: #425FA8;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .link {
+    color: white;
+    text-decoration: none;
+  }
+  
