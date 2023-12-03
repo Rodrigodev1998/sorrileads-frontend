@@ -1,0 +1,18 @@
+.table-container {
+  border-radius: 12px;
+  margin-inline-start: 12px;
+  margin-inline-end: 12px;
+}
+
+.rounded-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
+.rounded-table th,
+.rounded-table td {
+  border: 1px solid rgba(224, 224, 224, 1);
+  padding: 8px;
+  
+}
