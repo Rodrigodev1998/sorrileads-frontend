@@ -17,7 +17,6 @@ const SearchInput = ({ onSearch, onClear }) => {
 
   const clearInput = () => {
     setSearchText('');
-    onClear();
   };
 
   useEffect(() => {
