@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { ErrorOutline } from '@mui/icons-material';
 import axios from 'axios';
+import { getLeads } from '../../service/leads';
+import { async } from 'q';
 
 function createData(name, email, phone, especialidadeInteressada) {
   return { name, email, phone, especialidadeInteressada };
@@ -30,20 +32,27 @@ const NoDataMessage = () => (
 export default function TableLeads({ searchData }) {
   const [rows, setRows] = useState([]);
 
-  
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://ec2-34-227-66-235.compute-1.amazonaws.com:8080/sorrileads/dashboard/a179f8ef-3f6a-417d-b56b-55af685d304f/leads');
+        const response = await fetch('http://ec2-34-227-66-235.compute-1.amazonaws.com:8080/sorrileads/dashboard/a179f8ef-3f6a-417d-b56b-55af685d304f/leads', { mode : 'cors' });
+        
+        if (!response.ok) {
+          throw new Error('Erro ao obter os dados da API');
+        }
+
+        const data = await response.json();
         console.log(response);
-        const filteredRows = response.data.filter((row) =>
+        // Aplicar o filtro nos dados, não na resposta
+        const filteredRows = data.filter((row) =>
           Object.values(row).some(
             (value) => value.toLowerCase().includes(searchData.toLowerCase())
           )
         );
+
         setRows(filteredRows);
       } catch (error) {
-        console.error('Erro ao buscar leads:', error);
+        console.error('Error ao obter os dados da API:', error.message);
       }
     };
 
