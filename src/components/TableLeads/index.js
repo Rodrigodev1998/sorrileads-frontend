@@ -35,7 +35,7 @@ export default function TableLeads({ searchData }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://ec2-34-227-66-235.compute-1.amazonaws.com:8080/sorrileads/dashboard/a179f8ef-3f6a-417d-b56b-55af685d304f/leads', { mode : 'cors' });
+        const response = await fetch('http://ec2-34-227-66-235.compute-1.amazonaws.com:8080/sorrileads/dashboard/a179f8ef-3f6a-417d-b56b-55af685d304f/leads');
         
         if (!response.ok) {
           throw new Error('Erro ao obter os dados da API');
@@ -43,7 +43,7 @@ export default function TableLeads({ searchData }) {
 
         const data = await response.json();
         console.log(response);
-        // Aplicar o filtro nos dados, não na resposta
+        
         const filteredRows = data.filter((row) =>
           Object.values(row).some(
             (value) => value.toLowerCase().includes(searchData.toLowerCase())
